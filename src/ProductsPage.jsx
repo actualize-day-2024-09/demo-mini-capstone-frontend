@@ -1,7 +1,21 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { ProductsIndex } from "./ProductsIndex";
+
 export function ProductsPage() {
+  const [products, setProducts] = useState([]);
+
+  const handleIndex = () => {
+    axios.get("/products.json").then((response) => {
+      setProducts(response.data);
+    });
+  };
+
+  useEffect(handleIndex, []);
+
   return (
     <main>
-      <h1>Welcome to React!</h1>
+      <ProductsIndex products={products} />
     </main>
   );
 }
