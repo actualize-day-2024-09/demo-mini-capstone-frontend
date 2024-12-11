@@ -46,6 +46,13 @@ export function ProductsPage() {
     });
   };
 
+  const handleAddToCart = (params) => {
+    axios.post("/carted_products.json", params).then((response) => {
+      console.log(response);
+      setIsProductsShowVisible(false);
+    });
+  };
+
   useEffect(handleIndex, []);
 
   return (
@@ -53,7 +60,12 @@ export function ProductsPage() {
       <ProductsNew onCreate={handleCreate} />
       <ProductsIndex products={products} onShow={handleShow} />
       <Modal show={isProductsShowVisible} onClose={() => setIsProductsShowVisible(false)}>
-        <ProductsShow product={currentProduct} onUpdate={handleUpdate} onDestroy={handleDestroy} />
+        <ProductsShow
+          product={currentProduct}
+          onUpdate={handleUpdate}
+          onDestroy={handleDestroy}
+          onAddToCart={handleAddToCart}
+        />
       </Modal>
     </main>
   );
