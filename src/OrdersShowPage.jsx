@@ -18,7 +18,7 @@ export function OrdersShowPage() {
       <p>Subtotal: {order.subtotal}</p>
       <p>Tax: {order.tax}</p>
       <p>Total: {order.total}</p>
-      <Link to="/">Back to home</Link>
+      <Link to="/orders">All orders</Link>
     </div>
   );
 }
