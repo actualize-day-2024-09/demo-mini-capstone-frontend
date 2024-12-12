@@ -1,7 +1,16 @@
-import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 export function CartedProductsIndexPage() {
   const cartedProducts = useLoaderData();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    axios.post("/orders.json").then((response) => {
+      console.log(response);
+      navigate(`/orders/${response.data.id}`);
+    });
+  };
 
   return (
     <div>
@@ -12,6 +21,7 @@ export function CartedProductsIndexPage() {
           <p>Quantity: {cartedProduct.quantity}</p>
         </div>
       ))}
+      <button onClick={handleClick}>Buy now</button>
     </div>
   );
 }
