@@ -3,7 +3,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
-import { ProductsPage } from "./ProductsPage";
+import { ProductsIndexPage } from "./ProductsIndexPage";
+import { ProductsNewPage } from "./ProductsNewPage";
+import { ProductsShowPage } from "./ProductsShowPage";
 import { CartedProductsIndexPage } from "./CartedProductsIndexPage";
 import { OrdersIndexPage } from "./OrdersIndexPage";
 import { OrdersShowPage } from "./OrdersShowPage";
@@ -24,12 +26,27 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <ProductsPage />,
+        element: <ProductsIndexPage />,
+        loader: () => axios.get("/products.json").then((response) => response.data),
       },
       {
         path: "/carted_products",
         element: <CartedProductsIndexPage />,
         loader: () => axios.get("/carted_products.json").then((response) => response.data),
+      },
+      {
+        path: "/products",
+        element: <ProductsIndexPage />,
+        loader: () => axios.get("/products.json").then((response) => response.data),
+      },
+      {
+        path: "/products/new",
+        element: <ProductsNewPage />,
+      },
+      {
+        path: "/products/:id",
+        element: <ProductsShowPage />,
+        loader: ({ params }) => axios.get(`/products/${params.id}.json`).then((response) => response.data),
       },
       {
         path: "/orders",
