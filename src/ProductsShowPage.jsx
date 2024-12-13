@@ -22,10 +22,18 @@ export function ProductsShowPage() {
   };
 
   const handleAddToCart = (params) => {
-    axios.post("/carted_products.json", params).then((response) => {
-      console.log(response);
-      navigate("/carted_products");
-    });
+    axios
+      .post("/carted_products.json", params)
+      .then((response) => {
+        console.log(response);
+        navigate("/carted_products");
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.status === 401) {
+          navigate("/login");
+        }
+      });
   };
 
   return (
