@@ -7,24 +7,26 @@ export function ProductsNew({ onCreate }) {
 
   return (
     <div>
-      <h1>New Product</h1>
+      <h1 className="text-4xl font-bold mb-4">New Product</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" type="text" />
+        <div className="mb-2">
+          Name: <input name="name" type="text" className="mt-1 block w-full rounded-md border-gray-300" />
         </div>
-        <div>
-          Price: <input name="price" type="text" />
+        <div className="mb-2">
+          Price: <input name="price" type="text" className="mt-1 block w-full rounded-md border-gray-300" />
         </div>
-        <div>
-          Description: <input name="description" type="text" />
+        <div className="mb-2">
+          Description: <input name="description" type="text" className="mt-1 block w-full rounded-md border-gray-300" />
         </div>
-        <div>
-          Image url: <input name="image_url" type="text" />
+        <div className="mb-2">
+          Image url: <input name="image_url" type="text" className="mt-1 block w-full rounded-md border-gray-300" />
         </div>
-        <div>
-          Supplier id: <input name="supplier_id" type="text" />
+        <div className="mb-2">
+          Supplier id: <input name="supplier_id" type="text" className="mt-1 block w-full rounded-md border-gray-300" />
         </div>
-        <button type="submit">Create</button>
+        <button type="submit" className="rounded border border-gray-300 p-2 mt-2 hover:bg-gray-100">
+          Create
+        </button>
       </form>
     </div>
   );
