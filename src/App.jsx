@@ -17,9 +17,11 @@ axios.defaults.withCredentials = true;
 const router = createBrowserRouter([
   {
     element: (
-      <div>
+      <div className="flex min-h-screen flex-col">
         <Header />
-        <Outlet />
+        <div className="container mx-auto flex-auto p-4">
+          <Outlet />
+        </div>
         <Footer />
       </div>
     ),
