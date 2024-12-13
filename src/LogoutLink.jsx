@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function LogoutLink() {
+export function LogoutLink({ className }) {
   const handleClick = (event) => {
     event.preventDefault();
     axios.delete("/sessions.json").then((response) => {
@@ -11,7 +11,7 @@ export function LogoutLink() {
   };
 
   return (
-    <a href="#" onClick={handleClick}>
+    <a className={className} href="#" onClick={handleClick}>
       Logout
     </a>
   );
