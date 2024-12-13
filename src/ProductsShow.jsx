@@ -35,46 +35,49 @@ export function ProductsShow({ product, onUpdate, onDestroy, onAddToCart }) {
           <p>
             <span className="text-2xl">Description:</span> {product.description}
           </p>
-
-          <form onSubmit={handleSubmit} className="mt-6">
-            <div className="mb-4">
-              <label className="font-bold">Name:</label>
-              <input
-                name="name"
-                defaultValue={product.name}
-                type="text"
-                className="mt-1 block w-full rounded-md border-gray-300"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="font-bold">Price:</label>
-              <input
-                name="price"
-                defaultValue={product.price}
-                type="text"
-                className="mt-1 block w-full rounded-md border-gray-300"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="font-bold">Description:</label>
-              <input
-                name="description"
-                defaultValue={product.description}
-                type="text"
-                className="mt-1 block w-full rounded-md border-gray-300"
-              />
-            </div>
-            <button type="submit" className="rounded border border-gray-300 p-2 mt-2 hover:bg-gray-100">
-              Update
-            </button>
-            <button
-              onClick={() => onDestroy(product)}
-              type="button"
-              className="rounded border border-gray-300 p-2 mt-2 ml-2 hover:bg-gray-100"
-            >
-              Destroy
-            </button>
-          </form>
+          {localStorage.admin === "true" ? (
+            <>
+              <form onSubmit={handleSubmit} className="mt-6">
+                <div className="mb-4">
+                  <label className="font-bold">Name:</label>
+                  <input
+                    name="name"
+                    defaultValue={product.name}
+                    type="text"
+                    className="mt-1 block w-full rounded-md border-gray-300"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="font-bold">Price:</label>
+                  <input
+                    name="price"
+                    defaultValue={product.price}
+                    type="text"
+                    className="mt-1 block w-full rounded-md border-gray-300"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="font-bold">Description:</label>
+                  <input
+                    name="description"
+                    defaultValue={product.description}
+                    type="text"
+                    className="mt-1 block w-full rounded-md border-gray-300"
+                  />
+                </div>
+                <button type="submit" className="rounded border border-gray-300 p-2 mt-2 hover:bg-gray-100">
+                  Update
+                </button>
+                <button
+                  onClick={() => onDestroy(product)}
+                  type="button"
+                  className="rounded border border-gray-300 p-2 mt-2 ml-2 hover:bg-gray-100"
+                >
+                  Destroy
+                </button>
+              </form>
+            </>
+          ) : null}
         </div>
       </div>
     </div>

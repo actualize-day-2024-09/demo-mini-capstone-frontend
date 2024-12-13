@@ -11,11 +11,15 @@ export function Header() {
         <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/products">
           All products
         </Link>
-        {localStorage.email ? (
+        {localStorage.admin === "true" ? (
           <>
             <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/products/new">
               New product
             </Link>
+          </>
+        ) : null}
+        {localStorage.email ? (
+          <>
             <Link className="p-2 mr-2 rounded-md hover:bg-slate-200 hover:text-black" to="/carted_products">
               Shopping Cart
             </Link>
