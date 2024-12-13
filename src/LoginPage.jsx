@@ -24,20 +24,22 @@ export function LoginPage() {
 
   return (
     <div id="login">
-      <h1>Login</h1>
-      <ul>
+      <h1 className="text-3xl font-bold">Login</h1>
+      <ul className="list-disc p-4 text-red-600">
         {errors.map((error) => (
           <li key={error}>{error}</li>
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
+        <div className="mb-2">
+          Email: <input name="email" type="email" className="mt-1 block w-full rounded-md border-gray-300" />
         </div>
-        <div>
-          Password: <input name="password" type="password" />
+        <div className="mb-2">
+          Password: <input name="password" type="password" className="mt-1 block w-full rounded-md border-gray-300" />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="rounded border border-gray-300 p-2 mt-2 hover:bg-gray-100">
+          Login
+        </button>
       </form>
     </div>
   );
