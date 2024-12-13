@@ -11,7 +11,9 @@ import { OrdersIndexPage } from "./OrdersIndexPage";
 import { OrdersShowPage } from "./OrdersShowPage";
 import { Footer } from "./Footer";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://demo-mini-capstone-api-0su7.onrender.com";
+
 axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
