@@ -39,6 +39,9 @@ export function Header() {
             </Link>
           </>
         )}
+        <form action="/products" className="inline">
+          <input name="name" type="text" placeholder="Search..." className="text-black rounded-md ml-8" />
+        </form>
         <span className="float-end">{localStorage.email}</span>
       </nav>
     </header>
